@@ -10,7 +10,6 @@ users = [
     {"id": 1, "username": "admin", "password": "admin"}
 ]
 
-
 @app.route('/')
 def index():
    return "Mon application"
