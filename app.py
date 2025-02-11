@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+import os
 
 app = Flask(__name__)
 
@@ -12,11 +13,11 @@ users = [
 
 @app.route('/')
 def index():
-   return "Mon application"
+    return "Mon application"
 
 @app.route('/signin')
 def signin():
-   return render_template('signin.html')
+    return render_template('signin.html')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -27,8 +28,8 @@ def login():
         if user['username'] == username and user['password'] == password:
             access_token = create_access_token(identity=username)
             return access_token
-        else:
-            return "Invalid credentials"
+    
+    return "Invalid credentials"
 
 @app.route('/adduser', methods=['POST'])
 def adduser():
@@ -45,12 +46,15 @@ def adduser():
 
 @app.route('/signup')
 def signup():
-   return render_template('signup.html')
+    return render_template('signup.html')
 
 @app.route('/home')
 @jwt_required()
 def home():
-   return "Page apres authentification"
+    return render_template('home.html')
+
+app.template_folder = os.path.join(os.getcwd(), 'app/templates')
+app.static_folder = os.path.join(os.getcwd(), 'app/static')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
