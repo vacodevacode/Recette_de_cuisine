@@ -7,3 +7,4 @@
 **4 - Consultation de recettes**
 **5 - Rechercher des recettes via le nom** 
 **6 - Pertinance par filtrage**
+**7 - Machine learning (conseils selon les habitudes d'utilisations)**
