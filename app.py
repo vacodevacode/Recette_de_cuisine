@@ -13,7 +13,14 @@ users = [
 
 @app.route('/')
 def index():
-    return "Mon application"
+    cards = [
+            {'title': 'Carte 1', 'Description': 'Contenu de la carte 1','Detail':'plus'},
+            {'title': 'Carte 2', 'Description': 'Contenu de la carte 2','Detail':'plus'},
+            {'title': 'Carte 3', 'Description': 'Contenu de la carte 3','Detail':'plus'},
+            # Ajoutez autant de cartes que nécessaire
+        ]
+    return render_template('index.html', cards=cards)
+
 
 @app.route('/signin')
 def signin():
@@ -57,9 +64,9 @@ app.template_folder = os.path.join(os.getcwd(), 'app/templates')
 app.static_folder = os.path.join(os.getcwd(), 'app/static')
 
 
-@app.route('/card')
-def card():
-    return render_template('card.html', img='', Card_title='', Description='',Detail='')
+# @app.route('/card')
+# def card():
+#     return render_template('card.html', img='', Card_title='', Description='',Detail='')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
