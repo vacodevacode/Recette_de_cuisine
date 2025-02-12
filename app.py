@@ -56,5 +56,10 @@ def home():
 app.template_folder = os.path.join(os.getcwd(), 'app/templates')
 app.static_folder = os.path.join(os.getcwd(), 'app/static')
 
+
+@app.route('/card')
+def card():
+    return render_template('card.html', img='', Card_title='', Description='',Detail='')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
