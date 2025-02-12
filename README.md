@@ -44,8 +44,4 @@ python app.py
 
 Le serveur sera accessible sur http://127.0.0.1:5000/
 
-# 📬 Contact
-
-📧 Pour toute question ou suggestion, n'hésitez pas à nous contacter via [email/profil GitHub].
-
 🚀 Bon appétit et bon développement avec Kitchen_Online ! 🍽️
