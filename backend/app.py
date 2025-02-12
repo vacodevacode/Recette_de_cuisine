@@ -60,8 +60,8 @@ def signup():
 def home():
     return render_template('home.html')
 
-app.template_folder = os.path.join(os.getcwd(), 'app/templates')
-app.static_folder = os.path.join(os.getcwd(), 'app/static')
+app.template_folder = os.path.join(os.getcwd(), 'frontend/Templates')
+app.static_folder = os.path.join(os.getcwd(), 'frontend/static')
 
 
 # @app.route('/card')
