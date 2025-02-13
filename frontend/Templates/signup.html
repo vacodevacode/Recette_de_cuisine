@@ -13,24 +13,42 @@
       border-radius: 20px;
     }
   </style>
-  <h1>Inscription</h1>
-  <form action="/adduser" method="post">
 
-    <div class=" w-25">
-      <label for="exampleInputFirstName" class="form-label">Prénom</label>
-      <input type="text" name="firstname" placeholder="Prenom" class="form-control" id="exampleInputFirstName">
-    </div>
+  <form action="/adduser" method="post" class="card w-25" style="align-items: center;">
+    
+    <div class="row w-70 p-3" >
+  <h3>Je m'inscris</h3>
+  <div class="col w-auto">
+    <label for="exampleInputFirstName" class="form-label">Prénom</label>
+    <input type="text" name="firstname" placeholder="Prenom" class="form-control" id="exampleInputFirstName">
+  </div>
+  
+  <div class=" col w-auto">
+    <label for="exampleInputName" class="form-label">Nom</label>
+    <input type="text" name="name" placeholder="Nom" class="form-control" id="exampleInputName">
+  </div>
 
-    <div class=" w-25">
-      <label for="exampleInputName" class="form-label">Nom</label>
-      <input type="text" name="name" placeholder="Nom" class="form-control" id="exampleInputName">
-    </div>
+  
+  
+  <div class=" w-100">
+    <label for="exampleInputUserName" class="form-label">Identifiant</label>
+    <input type="text" name="username" placeholder="Identifiant" class="form-control" id="exampleInputUserName">
+  </div>
+  
+  <div class=" w-100">
+    <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+    <input type="password" name="password" placeholder="Mot de passe" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class=" w-100">
+    <label for="exampleInputEmail" class="form-label">Email</label>
+    <input type="text" name="email" placeholder="Adresse mail" class="form-control" id="exampleInputEmail">
+  </div>
 
-    <div class=" w-25">
-      <label for="exampleInputUserName" class="form-label">Identifiant</label>
-      <input type="text" name="username" placeholder="Identifiant" class="form-control" id="exampleInputUserName">
-    </div>
+  <div class="p-3">
+    <input type="submit" value="Valider" class="btn btn-primary w-25"/>
+  </div>
 
+<<<<<<< HEAD
     <div class=" w-25">
       <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
       <input type="password" name="password" placeholder="Mot de passe" class="form-control" id="exampleInputPassword1">
@@ -41,6 +59,30 @@
     </div>
 
     <input type="submit" value="Valider" class="btn btn-primary" />
+=======
+</div>
+  <!-- <div>
+      <input type="text" name="firstname" placeholder="Prenom" />
+    </div>
+
+    <div>
+      <input type="text" name="name" placeholder="Nom" />
+    </div>
+
+    <div>
+      <input type="text" name="username" placeholder="Identifiant" />
+    </div>
+
+    <div>
+      <input type="password" name="password" placeholder="Mot de passe" />
+    </div>
+
+    <div>
+      <input type="text" name="email" placeholder="Adresse mail" />
+    </div> -->
+
+    
+>>>>>>> de2cee2065c0fd5797812d873da35ae1ae13e2ad
   </form>
 </div>
 {% endblock %}
