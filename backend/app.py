@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, set_access_cookies
 import os
 
+from pymongo import MongoClient
+from backend.models import client 
+
 app = Flask(__name__)
 
 app.config['JWT_SECRET_KEY'] = 'web2'
@@ -10,10 +13,29 @@ jwt = JWTManager(app)
 users = [
     {"id": 1, "username": "admin", "password": "admin"}
 ]
+MongoClient('mongodb://localhost:27017/')
+db = client["recette_cuisine"]
+collection = db['recipes']
+
 
 @app.route('/')
 def index():
     return render_template('welcome.html')
+
+
+
+#NE PAS TOUCHER URL DE TEST:
+@app.route('/card')
+def card():
+    cards = list(collection.find())
+    # [
+    #         {'title': 'Carte 1', 'Description': 'Contenu de la carte 1','Detail':'plus'},
+    #         {'title': 'Carte 2', 'Description': 'Contenu de la carte 2','Detail':'plus'},
+    #         {'title': 'Carte 3', 'Description': 'Contenu de la carte 3','Detail':'plus'},
+    #         # Ajoutez autant de cartes que nécessaire
+    #     ]
+    return render_template('index.html', cards=cards)
+
 
 @app.route('/signin')
 def signin():
