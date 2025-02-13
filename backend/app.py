@@ -13,13 +13,14 @@ users = [
 
 @app.route('/')
 def index():
-    cards = [
-            {'title': 'Carte 1', 'Description': 'Contenu de la carte 1','Detail':'plus'},
-            {'title': 'Carte 2', 'Description': 'Contenu de la carte 2','Detail':'plus'},
-            {'title': 'Carte 3', 'Description': 'Contenu de la carte 3','Detail':'plus'},
+    # cards = [
+            # {'title': 'Carte 1', 'Description': 'Contenu de la carte 1','Detail':'plus'},
+            # {'title': 'Carte 2', 'Description': 'Contenu de la carte 2','Detail':'plus'},
+            # {'title': 'Carte 3', 'Description': 'Contenu de la carte 3','Detail':'plus'},
             # Ajoutez autant de cartes que nécessaire
-        ]
-    return render_template('index.html', cards=cards)
+        # ]
+    # return render_template('index.html', cards=cards)
+    return render_template ('signin.html')
 
 
 @app.route('/signin')
