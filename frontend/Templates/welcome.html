@@ -3,9 +3,10 @@
 
 {% block content %}
 
-<div class="d-flex justify-content-between ">
+<div class="d-flex justify-content-between m-1 ">
   <div style="padding: 15% 15px 15px 5%; ">
-    <div id="content" style="display: flex; align-items: center; flex-direction: column; margin-bottom: 15%;" class="p-3">
+    <div id="content" style="display: flex; align-items: center; flex-direction: column; margin-bottom: 15%;"
+      class="p-3">
       <div style="text-align: center;">
         <h1>Bienvenue sur Kitchen Online</h1>
         <h3>Trouver des recettes qui vous ressemble</h3>
@@ -17,18 +18,18 @@
     </div>
   </div>
 
-  <div style="background-color: #f66d5b;" class="w-50 p-5">
+  <div style="background-color: #f66d5b;" class="w-50 p-5 rounded-5">
     <div class="carousel" style="padding-top: 20%; ">
-      
+
       <div class="carousel slide" id="carouselExample" data-bs-ride="carousel">
-        <div class="carousel-inner d-flex justify-content-evenly" >
+        <div class="carousel-inner d-flex justify-content-evenly">
           {% for card in cards %}
-          <div class="carousel-item {% if loop.first %}active{% endif %} " >
+          <div class="carousel-item {% if loop.first %}active{% endif %} ">
             {% include 'card.html' %}
           </div>
           {% endfor %}
         </div>
-        
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
