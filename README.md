@@ -26,7 +26,7 @@ Python (latest version)
 
 Flask
 
-SQLite / PostgreSQL (selon configuration)
+MongoDb
 
 # 📥 Cloner le projet
 
