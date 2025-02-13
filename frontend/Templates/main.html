@@ -18,6 +18,7 @@
 
   <body align="center">
     <header>
+<<<<<<< Updated upstream
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand text-light fw-bold fs-4" href="/"
@@ -33,11 +34,24 @@
               <a href="{{ url_for('register') }}" class="btn btn-success"
                 >S'inscrire</a
               >
+=======
+        <nav class="navbar navbar-expand-lg p-3" style="background-color: #F44831;">
+            <div class="container">
+                <a class="navbar-brand text-light fw-bold fs-4" href="/">Kitchen Online</a>
+                <div id="navbarNav">
+                    <div class="ms-auto">
+                        <a href="{{ url_for('signin') }}"
+                            class="p-6 btn btn-outline-success text-light border-0 me-2">Se connecter</a>
+                        <a href="{{ url_for('signup') }}" class="btn btn-success">S'inscrire</a>
+                    </div>
+                </div>
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>
       </nav>
     </header>
+<<<<<<< Updated upstream
     <!-- RECHERCHE FETCH -->
     <h2>Recherche de Recettes</h2>
     <input
@@ -46,9 +60,15 @@
       placeholder="Rechercher une recette..."
     />
     <button onclick="searchRecipes()">Rechercher</button>
+=======
 
-    <h3>Filtres par catégorie</h3>
+>>>>>>> Stashed changes
 
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+<<<<<<< Updated upstream
     <div id="categoryFilters">
       <button class="filter-btn" onclick="filterByCategory('Salade')">
         Salade
@@ -62,6 +82,11 @@
     </div>
 
     <div id="results"></div>
+=======
+    <footer align="center">
+        <p class="bg-dark text-light text-center py-3 position-fixed bottom-0 w-100">&copy; 2025 Mon Site</p>
+    </footer>
+>>>>>>> Stashed changes
 
     <script>
       function searchRecipes() {
@@ -84,6 +109,7 @@
           .catch((error) => console.error("Erreur :", error));
       }
     </script>
+<<<<<<< Updated upstream
     <main>{% block content %}{% endblock %}</main>
 
     <footer align="center">
@@ -95,3 +121,8 @@
     </footer>
   </body>
 </html>
+=======
+</body>
+
+</html>
+>>>>>>> Stashed changes
