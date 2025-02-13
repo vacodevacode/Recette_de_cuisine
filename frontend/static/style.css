@@ -7,8 +7,26 @@ body {
     display: block;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #F44831;
+}
+
+.navbar .navbar-brand {
+    color: white;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
 }

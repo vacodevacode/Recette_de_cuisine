@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mes Recettes</title>
+  </head>
+  <body>
+    <h1>Bienvenue, {{ username }} !</h1>
+    <p>Voici vos recettes :</p>
+    <ul>
+      {% for recipe in recipes %}
+      <li>{{ recipe.title }} - {{ recipe.description }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}">Déconnexion</a>
+  </body>
+</html>
