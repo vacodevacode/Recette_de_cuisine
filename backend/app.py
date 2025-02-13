@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+from flask import Flask, render_template, request, redirect, url_for
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token, set_access_cookies
 import os
 
 app = Flask(__name__)
@@ -13,15 +13,7 @@ users = [
 
 @app.route('/')
 def index():
-    # cards = [
-            # {'title': 'Carte 1', 'Description': 'Contenu de la carte 1','Detail':'plus'},
-            # {'title': 'Carte 2', 'Description': 'Contenu de la carte 2','Detail':'plus'},
-            # {'title': 'Carte 3', 'Description': 'Contenu de la carte 3','Detail':'plus'},
-            # Ajoutez autant de cartes que nécessaire
-        # ]
-    # return render_template('index.html', cards=cards)
-    return render_template ('signin.html')
-
+    return render_template('signin.html')
 
 @app.route('/signin')
 def signin():
@@ -35,9 +27,11 @@ def login():
     for user in users:
         if user['username'] == username and user['password'] == password:
             access_token = create_access_token(identity=username)
-            return access_token
-    
-    return "Invalid credentials"
+            response = redirect(url_for('home'))
+            set_access_cookies(response, access_token)  
+            return response
+
+    return "Invalid credentials", 401
 
 @app.route('/adduser', methods=['POST'])
 def adduser():
@@ -50,7 +44,7 @@ def adduser():
     user = {"id": len(users) + 1, "firstname": firstname, "name": name, "username": username, "password": password, "email": email}
     users.append(user)
 
-    return "User added successfully" + str(users)
+    return redirect(url_for('signin'))
 
 @app.route('/signup')
 def signup():
@@ -62,13 +56,8 @@ def signup():
 def home():
     return render_template('home.html')
 
-app.template_folder = os.path.join(os.getcwd(), 'frontend/Templates')
+app.template_folder = os.path.join(os.getcwd(), 'frontend/templates')
 app.static_folder = os.path.join(os.getcwd(), 'frontend/static')
-
-
-# @app.route('/card')
-# def card():
-#     return render_template('card.html', img='', Card_title='', Description='',Detail='')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
