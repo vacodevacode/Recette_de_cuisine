@@ -37,6 +37,26 @@ def card():
     #     ]
     return render_template('index.html', cards=cards)
 
+@app.route('/search', methods=['GET'])
+def search_recipes():
+    query = request.args.get('q', '')
+
+    if not query:
+        return "Aucun terme de recherche fourni", 400
+
+    search_filter = {"$or": [
+        {"title": {"$regex": query, "$options": "i"}},
+        {"description": {"$regex": query, "$options": "i"}}
+    ]}
+
+    results = collection.find(search_filter, {"_id": 0})
+
+    response_text = ""
+    for recipe in results:
+        response_text += f"📝 {recipe['title']}\n{recipe['description']}\n Score: {recipe['vote']}\n\n"
+
+    return response_text if response_text else "Aucune recette trouvée."
+
 
 @app.route('/signin')
 def signin():
