@@ -58,6 +58,7 @@ def signup():
 
 @app.route('/home')
 @jwt_required() 
+
 def home():
     return render_template('home.html')
 
