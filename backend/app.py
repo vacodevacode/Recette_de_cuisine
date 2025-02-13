@@ -20,7 +20,8 @@ collection = db['recipes']
 
 @app.route('/')
 def index():
-    return render_template('welcome.html')
+    cards = list(collection.find())
+    return render_template('welcome.html',cards=cards)
 
 
 
