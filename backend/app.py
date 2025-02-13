@@ -57,6 +57,21 @@ def search_recipes():
 
     return response_text if response_text else "Aucune recette trouvée."
 
+@app.route('/filter', methods=['GET'])
+def filter_recipes():
+    category = request.args.get('category', '').strip()
+
+    if not category:
+        return "Aucune catégorie sélectionnée.", 400
+
+    search_filter = {"title": {"$regex": category, "$options": "i"}}
+    results = collection.find(search_filter, {"_id": 0})
+
+    response_text = ""
+    for recipe in results:
+        response_text += f"📝 {recipe['title']}\n{recipe['description']}\n Score: {recipe['vote']}\n\n"
+
+    return response_text if response_text else f"Aucune recette trouvée pour la catégorie '{category}'."
 
 @app.route('/signin')
 def signin():
