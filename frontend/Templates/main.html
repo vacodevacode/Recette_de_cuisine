@@ -38,7 +38,52 @@
         </div>
       </nav>
     </header>
+    <!-- RECHERCHE FETCH -->
+    <h2>Recherche de Recettes</h2>
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Rechercher une recette..."
+    />
+    <button onclick="searchRecipes()">Rechercher</button>
 
+    <h3>Filtres par catégorie</h3>
+
+    <div id="categoryFilters">
+      <button class="filter-btn" onclick="filterByCategory('Salade')">
+        Salade
+      </button>
+      <button class="filter-btn" onclick="filterByCategory('Tarte')">
+        Tarte
+      </button>
+      <button class="filter-btn" onclick="filterByCategory('Pâtes')">
+        Pâtes
+      </button>
+    </div>
+
+    <div id="results"></div>
+
+    <script>
+      function searchRecipes() {
+        const query = document.getElementById("searchInput").value;
+
+        fetch(`http://127.0.0.1:5000/search?q=${query}`)
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("results").innerText = data;
+          })
+          .catch((error) => console.error("Erreur :", error));
+      }
+
+      function filterByCategory(category) {
+        fetch(`http://127.0.0.1:5000/filter?category=${category}`)
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("results").innerText = data;
+          })
+          .catch((error) => console.error("Erreur :", error));
+      }
+    </script>
     <main>{% block content %}{% endblock %}</main>
 
     <footer align="center">
