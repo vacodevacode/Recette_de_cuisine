@@ -13,7 +13,7 @@ users = [
 
 @app.route('/')
 def index():
-    return render_template('signin.html')
+    return render_template('welcome.html')
 
 @app.route('/signin')
 def signin():
