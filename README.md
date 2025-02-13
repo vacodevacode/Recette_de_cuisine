@@ -45,3 +45,7 @@ python run.py
 Le serveur sera accessible sur http://127.0.0.1:5000/
 
 🚀 Bon appétit et bon développement avec Kitchen_Online ! 🍽️
+
+
+
+
