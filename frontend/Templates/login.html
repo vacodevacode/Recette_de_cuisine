@@ -1,36 +1,45 @@
-{% extends "main.html" %}
-
-{% block title %}Connexion{% endblock %}
-
-
-{% block content %}
+{% extends "main.html" %} {% block title %}Connexion{% endblock %} {% block
+content %}
 <div align="center" class="p-3">
-
-
   <div class="p-3 mb-2">
-
-    <form action="/login" method="post" class="card w-25" style="align-items: center;">
-
+    <form
+      action="/login"
+      method="post"
+      class="card w-25"
+      style="align-items: center"
+    >
       <div class="row w-70 p-3">
         <h3>Je me connecte</h3>
-        <div class=" w-100">
-          <label for="exampleInputPassword1" class="form-label">Identifiant</label>
-          <input type="text" name="username" placeholder="Identifiant" class="form-control" id="exampleInputPassword1">
+        <div class="w-100">
+          <label for="exampleInputPassword1" class="form-label"
+            >Identifiant</label
+          >
+          <input
+            type="text"
+            name="username"
+            placeholder="Identifiant"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
         </div>
 
-        <div class=" w-100">
-          <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-          <input type="password" name="password" placeholder="Mot de passe" class="form-control"
-            id="exampleInputPassword1">
+        <div class="w-100">
+          <label for="exampleInputPassword1" class="form-label"
+            >Mot de passe</label
+          >
+          <input
+            type="password"
+            name="password"
+            placeholder="Mot de passe"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
         </div>
 
         <div class="p-3">
           <input type="submit" value="Connexion" class="btn btn-primary" />
-
         </div>
       </div>
-
-
     </form>
   </div>
 </div>

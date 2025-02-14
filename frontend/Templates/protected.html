@@ -1,17 +1,121 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Mes Recettes</title>
-  </head>
-  <body>
-    <h1>Bienvenue, {{ username }} !</h1>
-    <p>Voici vos recettes :</p>
-    <ul>
+{% extends "main.html" %} {% block content %}
+<div
+  class="d-flex justify-content-center align-items-center mt-4"
+  style="min-height: 200px"
+>
+  <div id="Input" class="w-50">
+    <h2 class="fs-5 text-center">Recherche de recettes</h2>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control border-black"
+        id="searchInput"
+        placeholder="Quelle recette cuisiner ?"
+      />
+      <button
+        onclick="searchRecipes()"
+        class="btn btn-outline-success"
+        type="button"
+      >
+        Rechercher
+      </button>
+    </div>
+    <h3 class="fs-6 text-center">Filtres par catégorie</h3>
+    <div id="categoryFilters" class="text-center g-5">
+      <button
+        class="filter-btn btn btn-success rounded-pill"
+        onclick="filterByCategory('Salade')"
+      >
+        Salade
+      </button>
+      <button
+        class="filter-btn btn btn-success rounded-pill"
+        onclick="filterByCategory('Tarte')"
+      >
+        Tarte
+      </button>
+      <button
+        class="filter-btn btn btn-success rounded-pill"
+        onclick="filterByCategory('Pâtes')"
+      >
+        Pâtes
+      </button>
+    </div>
+    <div id="results"></div>
+  </div>
+</div>
+
+<div
+  class="d-flex justify-content-evenly align-items-center"
+  style="height: 100%"
+>
+  <div style="padding: 5% 10px 5px 5%">
+    <div
+      id="content"
+      class="p-3"
+      style="
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: -50px;
+      "
+    >
+      <div style="text-align: center">
+        <h1 class="text-uppercase">👨‍🍳Bienvenue, {{ username }} !</h1>
+        <h3 class="text-uppercase fs-4">
+          Trouvez des recettes qui vous ressemblent 🎯
+        </h3>
+      </div>
+      <button type="button" class="btn btn-warning mt-5">Découvrir</button>
+    </div>
+  </div>
+
+  <div style="background-color: #f66d5b" class="w-50 p-5 rounded-5">
+    <h2 class="text-center text-white">Vos recettes</h2>
+    <ul class="list-group">
       {% for recipe in recipes %}
-      <li>{{ recipe.title }} - {{ recipe.description }}</li>
+      <li class="list-group-item">
+        {{ recipe.title }} - {{ recipe.description }}
+      </li>
       {% endfor %}
     </ul>
-    <a href="{{ url_for('logout') }}">Déconnexion</a>
-  </body>
-</html>
+  </div>
+</div>
+
+<div class="carousel slide mt-5" id="carouselExample" data-bs-ride="carousel">
+  <div class="carousel-inner d-flex justify-content-evenly">
+    {% for card in cards %}
+    <div class="carousel-item {% if loop.first %}active{% endif %}">
+      {% include 'card.html' %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<footer align="center">
+  <p class="bg-dark text-light text-center py-3 mt-4 bottom-0 w-100">
+    &copy; 2025 Mon Site |
+    <a href="{{ url_for('logout') }}" class="text-light">Déconnexion</a>
+  </p>
+</footer>
+
+{% endblock %}

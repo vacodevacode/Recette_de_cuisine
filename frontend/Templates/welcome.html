@@ -1,42 +1,78 @@
-{% extends "main.html" %}
+{% extends "main.html" %} {% block content %}
 
-{% block content %}
-
-
-<div class="d-flex justify-content-center align-items-center mt-4" style="min-height: 200px;">
+<div
+  class="d-flex justify-content-center align-items-center mt-4"
+  style="min-height: 200px"
+>
   <div id="Input" class="w-50">
     <h2 class="fs-5 text-center">Recherche de recettes</h2>
     <div class="input-group mb-3">
-      <input type="text" class="form-control border-black" id="searchInput" placeholder="Quelle recette cuisiner ?"
-        aria-label="Recipient's username" aria-describedby="button-addon2">
-      <button onclick="searchRecipes()" class="btn btn-outline-success" type="button"
-        id="button-addon2">Rechercher</button>
+      <input
+        type="text"
+        class="form-control border-black"
+        id="searchInput"
+        placeholder="Quelle recette cuisiner ?"
+        aria-label="Recipient's username"
+        aria-describedby="button-addon2"
+      />
+      <button
+        onclick="searchRecipes()"
+        class="btn btn-outline-success"
+        type="button"
+        id="button-addon2"
+      >
+        Rechercher
+      </button>
     </div>
     <h3 class="fs-6 text-center">Filtres par catégorie</h3>
     <div id="categoryFilters" class="text-center g-5">
-      <button class="filter-btn btn btn-success rounded-pill" onclick="filterByCategory('Salade')">Salade</button>
-      <button class="filter-btn btn btn-success rounded-pill" onclick="filterByCategory('Tarte')">Tarte</button>
-      <button class="filter-btn btn btn-success rounded-pill" onclick="filterByCategory('Pâtes')">Pâtes</button>
+      <button
+        class="filter-btn btn btn-success rounded-pill"
+        onclick="filterByCategory('Salade')"
+      >
+        Salade
+      </button>
+      <button
+        class="filter-btn btn btn-success rounded-pill"
+        onclick="filterByCategory('Tarte')"
+      >
+        Tarte
+      </button>
+      <button
+        class="filter-btn btn btn-success rounded-pill"
+        onclick="filterByCategory('Pâtes')"
+      >
+        Pâtes
+      </button>
     </div>
     <div id="results"></div>
   </div>
 </div>
 
-
-
-<div class="d-flex justify-content-evenly align-items-center" style="height: 100%;">
-  <div style="padding: 5% 10px 5px 5%; ">
-    <div id="content" class="p-3"
-      style="display: flex; align-items: center; flex-direction: column; margin-top: -50px;">
-      <div style="text-align: center;">
-        <h1 class="text-uppercase">👨‍🍳Bienvenue sur Kitchen Online </h1>
-        <h3 class="text-uppercase fs-4">Trouvez des recettes qui vous ressemble🎯</h3>
+<div
+  class="d-flex justify-content-evenly align-items-center"
+  style="height: 100%"
+>
+  <div style="padding: 5% 10px 5px 5%">
+    <div
+      id="content"
+      class="p-3"
+      style="
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: -50px;
+      "
+    >
+      <div style="text-align: center">
+        <h1 class="text-uppercase">👨‍🍳Bienvenue sur Kitchen Online</h1>
+        <h3 class="text-uppercase fs-4">
+          Trouvez des recettes qui vous ressemble🎯
+        </h3>
       </div>
       <button type="button" class="btn btn-warning mt-5">Découvrir</button>
     </div>
   </div>
-
-
 
   <div style="background-color: #f66d5b" class="w-50 p-5 rounded-5">
     <div class="carousel" style="padding-top: 20%">
@@ -49,12 +85,21 @@
           {% endfor %}
         </div>
 
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -63,12 +108,10 @@
   </div>
 </div>
 
-
 <footer align="center">
   <p class="bg-dark text-light text-center py-3 mt-4 bottom-0 w-100">
     &copy; 2025 Mon Site
   </p>
 </footer>
-
 
 {% endblock %}
