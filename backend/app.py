@@ -73,7 +73,7 @@ def register():
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         users.insert_one({"username": username, "password": hashed_password})
 
-        return redirect(url_for('home'))  # Redirection après inscription
+        return redirect(url_for('login'))  # Redirection après inscription
 
     return render_template('register.html')
 
