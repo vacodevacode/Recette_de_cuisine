@@ -27,37 +27,8 @@
     </header>
 
     <main>
-        <div class="d-flex justify-content-center align-items-center mt-4" style="min-height: 200px;">
-            <div id="Input" class="w-50">
-                <h2 class="fs-5 text-center">Recherche de recettes</h2>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control border-black" id="searchInput"
-                        placeholder="Quelle recette cuisiner ?" aria-label="Recipient's username"
-                        aria-describedby="button-addon2">
-                    <button onclick="searchRecipes()" class="btn btn-outline-success" type="button"
-                        id="button-addon2">Rechercher</button>
-                </div>
-                <h3 class="fs-6 text-center">Filtres par catégorie</h3>
-                <div id="categoryFilters" class="text-center g-5">
-                    <button class="filter-btn btn btn-success rounded-pill"
-                        onclick="filterByCategory('Salade')">Salade</button>
-                    <button class="filter-btn btn btn-success rounded-pill"
-                        onclick="filterByCategory('Tarte')">Tarte</button>
-                    <button class="filter-btn btn btn-success rounded-pill"
-                        onclick="filterByCategory('Pâtes')">Pâtes</button>
-                </div>
-                <div id="results"></div>
-            </div>
-        </div>
-
         {% block content %}{% endblock %}
     </main>
-
-    <footer align="center">
-        <p class="bg-dark text-light text-center py-3 position-fixed bottom-0 w-100">
-            &copy; 2025 Mon Site
-        </p>
-    </footer>
 
     <script>
         function searchRecipes() {

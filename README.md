@@ -32,8 +32,6 @@ MongoDb
 
 git clone https://github.com/votre-utilisateur/Kitchen_Online.git
 
-cd Kitchen_Online
-
 # 📦 Installer les dépendances
 
 pip install -r requirements.txt
