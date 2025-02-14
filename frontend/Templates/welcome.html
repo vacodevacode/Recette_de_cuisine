@@ -1,20 +1,18 @@
-{% extends "main.html" %} {% block content %}
-<div class="d-flex justify-content-between m-1">
-  <div style="padding: 15% 15px 15px 5%">
-    <div id="content" style="
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        margin-bottom: 15%;
-      " class="p-3">
-      <div style="text-align: center">
-        <h1>Bienvenue sur Kitchen Online</h1>
-        <h3>Trouvez des recettes qui vous ressemblent</h3>
+{% extends "main.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-evenly align-items-center" style="height: 100%;">
+  <div style="padding: 5% 10px 5px 5%; ">
+    <div id="content" class="p-3"
+      style="display: flex; align-items: center; flex-direction: column; margin-top: -50px;">
+      <div style="text-align: center;">
+        <h1 class="text-uppercase">👨‍🍳Bienvenue sur Kitchen Online </h1>
+        <h3 class="text-uppercase fs-4">Trouvez des recettes qui vous ressemble🎯</h3>
       </div>
-      <button type="button" class="btn btn-warning">Découvrir</button>
+      <button type="button" class="btn btn-warning mt-5">Découvrir</button>
     </div>
   </div>
-
+  <!-- Section carousel -->
   <div style="background-color: #f66d5b" class="w-50 p-5 rounded-5">
     <div class="carousel" style="padding-top: 20%">
       <div class="carousel slide" id="carouselExample" data-bs-ride="carousel">
@@ -26,6 +24,7 @@
           {% endfor %}
         </div>
 
+        <!-- Contrôles du carousel -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -38,4 +37,9 @@
     </div>
   </div>
 </div>
+
+
+
+
+
 {% endblock %}

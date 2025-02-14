@@ -12,7 +12,7 @@
 
 <body align="center">
     <header>
-        <<<<<<< Updated upstream <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg p-3" style="background-color: #F44831;">
             <div class="container">
                 <a class="navbar-brand text-light fw-bold fs-4" href="/">Kitchen Online</a>
                 <div id="navbarNav">
@@ -20,88 +20,66 @@
                         <a href="{{ url_for('login') }}" class="p-6 btn btn-outline-success text-light border-0 me-2">Se
                             connecter</a>
                         <a href="{{ url_for('register') }}" class="btn btn-success">S'inscrire</a>
-                        =======
-                        <nav class="navbar navbar-expand-lg p-3" style="background-color: #F44831;">
-                            <div class="container">
-                                <a class="navbar-brand text-light fw-bold fs-4" href="/">Kitchen Online</a>
-                                <div id="navbarNav">
-                                    <div class="ms-auto">
-                                        <a href="{{ url_for('signin') }}"
-                                            class="p-6 btn btn-outline-success text-light border-0 me-2">Se
-                                            connecter</a>
-                                        <a href="{{ url_for('signup') }}" class="btn btn-success">S'inscrire</a>
-                                    </div>
-                                </div>
-                                >>>>>>> Stashed changes
-                            </div>
                     </div>
                 </div>
-                </nav>
-    </header>
-    <<<<<<< Updated upstream <!-- RECHERCHE FETCH -->
-        <h2>Recherche de Recettes</h2>
-        <input type="text" id="searchInput" placeholder="Rechercher une recette..." />
-        <button onclick="searchRecipes()">Rechercher</button>
-        =======
-
-        >>>>>>> Stashed changes
-
-        <main>
-            {% block content %}{% endblock %}
-        </main>
-
-        <<<<<<< Updated upstream <div id="categoryFilters">
-            <button class="filter-btn" onclick="filterByCategory('Salade')">
-                Salade
-            </button>
-            <button class="filter-btn" onclick="filterByCategory('Tarte')">
-                Tarte
-            </button>
-            <button class="filter-btn" onclick="filterByCategory('Pâtes')">
-                Pâtes
-            </button>
             </div>
+        </nav>
+    </header>
 
-            <div id="results"></div>
-            =======
-            <footer align="center">
-                <p class="bg-dark text-light text-center py-3 position-fixed bottom-0 w-100">&copy; 2025 Mon Site</p>
-            </footer>
-            >>>>>>> Stashed changes
+    <main>
+        <div class="d-flex justify-content-center align-items-center mt-4" style="min-height: 200px;">
+            <div id="Input" class="w-50">
+                <h2 class="fs-5 text-center">Recherche de recettes</h2>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control border-black" id="searchInput"
+                        placeholder="Quelle recette cuisiner ?" aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
+                    <button onclick="searchRecipes()" class="btn btn-outline-success" type="button"
+                        id="button-addon2">Rechercher</button>
+                </div>
+                <h3 class="fs-6 text-center">Filtres par catégorie</h3>
+                <div id="categoryFilters" class="text-center g-5">
+                    <button class="filter-btn btn btn-success rounded-pill"
+                        onclick="filterByCategory('Salade')">Salade</button>
+                    <button class="filter-btn btn btn-success rounded-pill"
+                        onclick="filterByCategory('Tarte')">Tarte</button>
+                    <button class="filter-btn btn btn-success rounded-pill"
+                        onclick="filterByCategory('Pâtes')">Pâtes</button>
+                </div>
+                <div id="results"></div>
+            </div>
+        </div>
 
-            <script>
-                function searchRecipes() {
-                    const query = document.getElementById("searchInput").value;
+        {% block content %}{% endblock %}
+    </main>
 
-                    fetch(`http://127.0.0.1:5000/search?q=${query}`)
-                        .then((response) => response.text())
-                        .then((data) => {
-                            document.getElementById("results").innerText = data;
-                        })
-                        .catch((error) => console.error("Erreur :", error));
-                }
+    <footer align="center">
+        <p class="bg-dark text-light text-center py-3 position-fixed bottom-0 w-100">
+            &copy; 2025 Mon Site
+        </p>
+    </footer>
 
-                function filterByCategory(category) {
-                    fetch(`http://127.0.0.1:5000/filter?category=${category}`)
-                        .then((response) => response.text())
-                        .then((data) => {
-                            document.getElementById("results").innerText = data;
-                        })
-                        .catch((error) => console.error("Erreur :", error));
-                }
-            </script>
-            <<<<<<< Updated upstream <main>{% block content %}{% endblock %}</main>
+    <script>
+        function searchRecipes() {
+            const query = document.getElementById("searchInput").value;
 
-                <footer align="center">
-                    <p class="bg-dark text-light text-center py-3 position-fixed bottom-0 w-100">
-                        &copy; 2025 Mon Site
-                    </p>
-                </footer>
+            fetch(`http://127.0.0.1:5000/search?q=${query}`)
+                .then((response) => response.text())
+                .then((data) => {
+                    document.getElementById("results").innerText = data;
+                })
+                .catch((error) => console.error("Erreur :", error));
+        }
+
+        function filterByCategory(category) {
+            fetch(`http://127.0.0.1:5000/filter?category=${category}`)
+                .then((response) => response.text())
+                .then((data) => {
+                    document.getElementById("results").innerText = data;
+                })
+                .catch((error) => console.error("Erreur :", error));
+        }
+    </script>
 </body>
 
 </html>
-=======
-</body>
-
-</html>
->>>>>>> Stashed changes
