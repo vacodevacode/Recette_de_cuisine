@@ -14,7 +14,6 @@ app = Flask(
 app.config['SECRET_KEY'] = 'your-secret-key'
 bcrypt = Bcrypt(app)
 
-#Doushdi
 MongoClient('mongodb://localhost:27017/')
 db = client["recette_cuisine"]
 collection = db['recipes']
@@ -55,9 +54,9 @@ def filter_recipes():
 
     return response_text if response_text else f"Aucune recette trouvée pour la catégorie '{category}'."
 
+# Ici on récupére toutes les recettes u'ont vient prendre depuis notre DB
 @app.route('/')
 def home():
-    # Récupérer toutes les recettes depuis la base de données
     cards = recipes.find()
     return render_template('welcome.html', cards=cards)
 
@@ -73,14 +72,14 @@ def register():
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         users.insert_one({"username": username, "password": hashed_password})
 
-        return redirect(url_for('login'))  # Redirection après inscription
+        return redirect(url_for('login'))
 
     return render_template('register.html')
 
-# Ajout de la route '/adduser' pour l'inscription (si nécessaire)
+# Ici on ajoute la route '/adduser' pour l'inscription
 @app.route('/adduser', methods=['POST'])
 def add_user():
-    return register()  # Appelle directement la fonction register()
+    return register()
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -90,8 +89,8 @@ def login():
 
         user = users.find_one({"username": username})
         if user and bcrypt.check_password_hash(user['password'], password):
-            session['username'] = username  # Stocke l'utilisateur en session
-            return redirect(url_for('protected'))  # Redirection après connexion
+            session['username'] = username
+            return redirect(url_for('protected'))
 
         return render_template('login.html', error="Identifiants incorrects.")
 
@@ -100,14 +99,14 @@ def login():
 @app.route('/protected')
 def protected():
     if 'username' not in session:
-        return redirect(url_for('login'))  # Redirige vers login si pas connecté
+        return redirect(url_for('login'))
     
     user_recipes = recipes.find({"by_user": session['username']})
     return render_template('protected.html', username=session['username'], recipes=user_recipes)
 
 @app.route('/logout')
 def logout():
-    session.pop('username', None)  # Déconnecte l'utilisateur
+    session.pop('username', None)
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
