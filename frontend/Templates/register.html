@@ -1,9 +1,8 @@
 {% extends "main.html" %} {% block title %}Inscription{% endblock %} {% block
 content %}
-
 <div align="center" class="p-3">
   <form
-    action="/adduser"
+    action="/register"
     method="post"
     class="card w-25"
     style="align-items: center"
@@ -56,6 +55,7 @@ content %}
           id="exampleInputPassword1"
         />
       </div>
+
       <div class="w-100">
         <label for="exampleInputEmail" class="form-label">Email</label>
         <input
@@ -73,5 +73,4 @@ content %}
     </div>
   </form>
 </div>
-
 {% endblock %}

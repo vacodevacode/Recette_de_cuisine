@@ -18,6 +18,7 @@ bcrypt = Bcrypt(app)
 MongoClient('mongodb://localhost:27017/')
 db = client["recette_cuisine"]
 collection = db['recipes']
+
 @app.route('/search', methods=['GET'])
 def search_recipes():
     query = request.args.get('q', '')
@@ -53,7 +54,6 @@ def filter_recipes():
         response_text += f"📝 {recipe['title']}\n{recipe['description']}\n Score: {recipe['vote']}\n\n"
 
     return response_text if response_text else f"Aucune recette trouvée pour la catégorie '{category}'."
-#Doushdi
 
 @app.route('/')
 def home():
@@ -76,6 +76,11 @@ def register():
         return redirect(url_for('home'))  # Redirection après inscription
 
     return render_template('register.html')
+
+# Ajout de la route '/adduser' pour l'inscription (si nécessaire)
+@app.route('/adduser', methods=['POST'])
+def add_user():
+    return register()  # Appelle directement la fonction register()
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
